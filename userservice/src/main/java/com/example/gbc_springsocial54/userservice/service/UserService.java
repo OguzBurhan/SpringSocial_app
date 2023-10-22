@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface UserService {
     List<user> findAll();
-    user findById(String id); // Changed the type from Long to String
+    user findById(String id);
     user save(user user);
-    user update(String id, user user); // Changed the type from Long to String
-    boolean delete(String id); // Changed the type from Long to String
+    user update(String id, user user);
+    boolean delete(String id);
 }
 

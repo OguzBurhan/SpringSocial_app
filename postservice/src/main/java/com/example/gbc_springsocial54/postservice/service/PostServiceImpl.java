@@ -64,27 +64,4 @@ public class PostServiceImpl implements PostService{
                 .content(post.getContent()).build();
     }
 
-    /*
-    @Override
-    public List<HashMap<String, String>> getPostsForUser(String userId){
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userId").is(userId));
-
-        List<Post> posts = mongoTemplate.find(query, Post.class);
-        return mapToHashMapList(posts);
-    }
-
-    private List<HashMap<String, String>> mapToHashMapList(List<Post> posts) {
-        return posts.stream()
-                .map(post -> {
-                    HashMap<String, String> postMap = new HashMap<>();
-                    postMap.put("postId", post.getId());
-                    postMap.put("userId", post.getUserId());
-                    postMap.put("content", post.getContent());
-                    return postMap;
-                })
-                .collect(Collectors.toList());
-    }
-    */
-
 }

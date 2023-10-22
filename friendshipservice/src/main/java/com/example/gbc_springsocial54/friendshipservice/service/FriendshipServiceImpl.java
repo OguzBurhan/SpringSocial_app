@@ -36,12 +36,12 @@ public class FriendshipServiceImpl implements com.example.gbc_springsocial54.fri
     @Override
     public Friendship update(String id, Friendship friendship) {
         if (!id.equals(friendship.getId())) {
-            return null; // The ID from the path should match the ID of the object.
+            return null;
         }
         Friendship existingFriendship = findById(id);
         if (existingFriendship != null) {
             existingFriendship.setStatus(friendship.getStatus());
-            // You can update other attributes here as needed.
+            // update attributes
             return friendshipRepository.save(existingFriendship);
         }
         return null;

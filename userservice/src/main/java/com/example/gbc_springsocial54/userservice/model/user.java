@@ -9,5 +9,5 @@ public class user {
 	private String id;
 	private String username;
 	private String password;
-	// Getters and setters (You can generate them manually)
+
 }

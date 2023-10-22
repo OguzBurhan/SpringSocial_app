@@ -7,8 +7,5 @@ WORKDIR /app
 # Copy the application source code into the container
 COPY . /app
 
-# Compile your Java application (if needed)
-# RUN javac YourApp.java
-
 # Specify the command to run your application
-CMD ["java", "GBC_SpringSocial-54"]
+CMD ["java", "GbcSpringSocial54Application"]

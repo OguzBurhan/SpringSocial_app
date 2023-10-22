@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<user> getUserById(@PathVariable String id) {  // Changed from Long to String
+    public ResponseEntity<user> getUserById(@PathVariable String id) {
         user user = userService.findById(id);
         if(user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<user> updateUser(@PathVariable String id, @RequestBody user user) {  // Changed from Long to String
+    public ResponseEntity<user> updateUser(@PathVariable String id, @RequestBody user user) {
         com.example.gbc_springsocial54.userservice.model.user updatedUser = userService.update(id, user);
         if(updatedUser != null) {
             return new ResponseEntity<>(updatedUser, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String id) {  // Changed from Long to String
+    public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         if(userService.delete(id)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
