@@ -1,8 +1,8 @@
-package ca.gbc.commentservice.controller;
+package com.example.gbc_springsocial54.commentservice.controller;
 
-import ca.gbc.commentservice.dto.CommentRequest;
-import ca.gbc.commentservice.dto.CommentResponse;
-import ca.gbc.commentservice.services.CommentServiceImpl;
+import com.example.gbc_springsocial54.commentservice.controller.CommentRequest;
+import com.example.gbc_springsocial54.commentservice.controller.CommentResponse;
+import com.example.gbc_springsocial54.commentservice.service.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

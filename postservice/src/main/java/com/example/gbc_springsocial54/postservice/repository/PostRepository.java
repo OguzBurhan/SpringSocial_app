@@ -1,6 +1,6 @@
-package ca.gbc.postservice.repository;
+package com.example.gbc_springsocial54.postservice.repository;
 
-import ca.gbc.postservice.model.Post;
+import com.example.gbc_springsocial54.postservice.model.Post;
 import jakarta.annotation.Nonnull;
 import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;

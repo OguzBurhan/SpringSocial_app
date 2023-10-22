@@ -1,8 +1,8 @@
-package ca.gbc.postservice.controller;
+package com.example.gbc_springsocial54.postservice.controller;
 
-import ca.gbc.postservice.dto.PostRequest;
-import ca.gbc.postservice.dto.PostResponse;
-import ca.gbc.postservice.services.PostServiceImpl;
+import com.example.gbc_springsocial54.postservice.controller.PostRequest;
+import com.example.gbc_springsocial54.postservice.controller.PostResponse;
+import com.example.gbc_springsocial54.postservice.service.PostServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package ca.gbc.friendshipservice.model;
+package com.example.gbc_springsocial54.friendshipservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

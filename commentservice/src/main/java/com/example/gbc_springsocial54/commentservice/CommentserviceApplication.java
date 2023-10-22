@@ -1,15 +1,14 @@
-package ca.gbc.commentservice;
+package com.example.gbc_springsocial54.commentservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-//@EntityScan (basePackages = "ca.gbc.commentservice.model.Comment")
-public class CommentServiceApplication {
+public class CommentserviceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CommentServiceApplication.class, args);
+		SpringApplication.run(CommentserviceApplication.class, args);
 	}
 
 }

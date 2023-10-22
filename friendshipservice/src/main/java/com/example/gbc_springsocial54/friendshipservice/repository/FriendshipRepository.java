@@ -1,7 +1,7 @@
-package ca.gbc.friendshipservice.repository;
+package com.example.gbc_springsocial54.friendshipservice.repository;
 
-import ca.gbc.friendshipservice.model.Friendship;
-import ca.gbc.friendshipservice.model.Friendship.FriendshipStatus;
+import com.example.gbc_springsocial54.friendshipservice.model.Friendship;
+import com.example.gbc_springsocial54.friendshipservice.model.Friendship.FriendshipStatus;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

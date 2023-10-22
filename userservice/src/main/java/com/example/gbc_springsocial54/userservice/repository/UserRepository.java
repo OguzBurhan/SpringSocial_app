@@ -1,8 +1,9 @@
-package ca.gbc.userservice.repository;
+package com.example.gbc_springsocial54.userservice.repository;
 
-import ca.gbc.userservice.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.gbc_springsocial54.userservice.model.user;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface UserRepository extends JpaRepository<User, String>{
+public interface UserRepository extends MongoRepository<user, String>{
+    user findByUsername(String username);
 
 }

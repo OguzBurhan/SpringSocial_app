@@ -1,7 +1,7 @@
-package ca.gbc.userservice.controller;
+package com.example.gbc_springsocial54.userservice.controller;
 
-import ca.gbc.userservice.model.User;
-import ca.gbc.userservice.services.UserServiceImpl;
+import com.example.gbc_springsocial54.userservice.model.user;
+import com.example.gbc_springsocial54.userservice.service.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,14 +23,14 @@ public class UserController {
 
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.findAll();
+    public ResponseEntity<List<user>> getAllUsers() {
+        List<user> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable String id) {  // Changed from Long to String
-        User user = userService.findById(id);
+    public ResponseEntity<user> getUserById(@PathVariable String id) {  // Changed from Long to String
+        user user = userService.findById(id);
         if(user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
@@ -39,14 +39,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User newUser = userService.save(user);
+    public ResponseEntity<user> createUser(@RequestBody user user) {
+        com.example.gbc_springsocial54.userservice.model.user newUser = userService.save(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User user) {  // Changed from Long to String
-        User updatedUser = userService.update(id, user);
+    public ResponseEntity<user> updateUser(@PathVariable String id, @RequestBody user user) {  // Changed from Long to String
+        com.example.gbc_springsocial54.userservice.model.user updatedUser = userService.update(id, user);
         if(updatedUser != null) {
             return new ResponseEntity<>(updatedUser, HttpStatus.OK);
         } else {

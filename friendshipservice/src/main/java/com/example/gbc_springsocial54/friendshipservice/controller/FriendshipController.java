@@ -1,7 +1,7 @@
-package ca.gbc.friendshipservice.controller;
+package com.example.gbc_springsocial54.friendshipservice.controller;
 
-import ca.gbc.friendshipservice.model.Friendship;
-import ca.gbc.friendshipservice.service.FriendshipService;
+import com.example.gbc_springsocial54.friendshipservice.model.Friendship;
+import com.example.gbc_springsocial54.friendshipservice.service.FriendshipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

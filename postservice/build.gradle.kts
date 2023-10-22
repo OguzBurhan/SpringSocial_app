@@ -20,6 +20,9 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation ("org.projectlombok:lombok:1.18.22")
+	annotationProcessor ("org.projectlombok:lombok:1.18.22")
+	testCompileOnly ("org.projectlombok:lombok:1.18.22")
 }
 
 tasks.withType<Test> {
