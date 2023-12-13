@@ -1,0 +1,20 @@
+spring.application.name=postservice
+
+# MongoDB connection settings (For Docker)
+spring.data.mongodb.uri=mongodb://mongodb:27017/springsocial
+# MongoDB Atlas connection settings
+#spring.data.mongodb.uri=mongodb+srv://oguzburhan:Sakarya101..@cluster0.8zkqxda.mongodb.net/?retryWrites=true&w=majority
+server.port=8083
+
+# Specify the database name
+spring.data.mongodb.database=springsocial
+
+#COMMENT_SERVICE_URL=http://localhost:8082
+#check this
+comment.service.url=http://commentservice:8082/api/commentservice
+
+# Eureka Client Configuration
+eureka.client.service-url.default-zone=http://discovery-service:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.instance.prefer-ip-address=true

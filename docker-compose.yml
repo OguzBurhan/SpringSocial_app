@@ -1,0 +1,153 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./data/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
+  commentservice:
+    image: commentservice
+    ports:
+      - "8082:8082"
+    build:
+      context: ./commentservice
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    container_name: commentservice
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgresdb
+    networks:
+      - spring
+
+  postservice:
+    image: postservice
+    ports:
+      - "8083:8083"
+    build:
+      context: ./postservice
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    container_name: postservice
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  userservice:
+    image: userservice
+    ports:
+      - "8084:8084"
+    build:
+      context: ./userservice
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    container_name: userservice
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgresdb
+    networks:
+      - spring
+
+  friendshipservice:
+    image: friendshipservice
+    ports:
+      - "8085:8085"
+    build:
+      context: ./friendshipservice
+      dockerfile: ./Dockerfile
+    container_name: friendshipservice
+    restart: on-failure
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.ca
+      PGADMIN_DEFAULT_PASSWORD: password
+    container_name: pgadmin
+    restart: unless-stopped
+    networks:
+      - spring
+      -
+postgres-userservice:
+  image: postgres:latest
+  ports:
+    - "5432:5432"
+  environment:
+    - POSTGRES_USER=admin
+    - POSTGRES_PASSWORD=password
+  volumes:
+    - ./data/postgres-userservice:/var/lib/postgresql/data
+    - ./init/postgres/userservice/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+  container_name: postgres-userservice
+  restart: unless-stopped
+  networks:
+    - spring
+
+  postgres-commentservice:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./data/postgres-commentservice:/var/lib/postgresql/data
+      - ./init/postgres/commentservice/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    container_name: postgres-commentservice
+    restart: unless-stopped
+    networks:
+      - spring
+
+  postgres-friendservice:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./data/postgres-friendservice:/var/lib/postgresql/data
+      - ./init/postgres/friendservice/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    container_name: postgres-comment
+    restart: unless-stopped
+    networks:
+      - spring
+
+    discovery-service:
+      image: discovery-service
+      ports:
+        - "8761:8761"
+      build:
+        context: ./discovery-service
+        dockerfile: ./Dockerfile
+      container_name: discovery-service
+      environment:
+        SPRING_PROFILES_ACTIVE: docker
+      networks:
+        - spring
+networks:
+  spring:
+    driver: bridge

@@ -1,0 +1,18 @@
+spring.application.name=commentservice
+
+## MongoDB Atlas connection settings (For Cloud/Production)
+#spring.data.mongodb.uri=mongodb+srv://oguzburhan:Sakarya101..@cluster0.8zkqxda.mongodb.net/?retryWrites=true&w=majority
+
+# for local MongoDB (For Local Development)
+spring.data.mongodb.uri=mongodb://localhost:27017/springsocial
+
+server.port=8082
+
+# Specify the database name
+spring.data.mongodb.database=springsocial
+
+# Eureka Client Configuration (if running locally with Eureka)
+eureka.client.service-url.default-zone=http://localhost:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.instance.prefer-ip-address=true

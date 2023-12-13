@@ -1,0 +1,45 @@
+spring.application.name=friendshipservice
+server.port=8085
+
+# Eureka Client Configuration
+eureka.client.service-url.default-zone=http://discovery-service:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.instance.prefer-ip-address=true
+
+# Database Configuration
+spring.datasource.url=jdbc:postgresql://postgres-friendservice:5432/friendshipservice
+spring.datasource.username=admin
+spring.datasource.password=password
+
+# JPA and Hibernate Configuration
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+
+#It'll be configured in the application.properties file of the Friendship Service.
+#inventory.service.url=http://inventory-service:8086/api/inventory
+
+## Actuator Configuration
+#management.health.defaults.enabled=true
+#management.endpoints.web.exposure.include=*
+#management.endpoint.health.show-details=always
+#management.endpoint.health.probes.enabled=true
+#
+## Resilience4j Circuit Breaker Configuration
+#resilience4j.circuitbreaker.instances.inventory.registerHealthIndicator=true
+#resilience4j.circuitbreaker.instances.inventory.event-consumer-buffer-size=10
+#resilience4j.circuitbreaker.instances.inventory.slidingWindowType=COUNT_BASED
+#resilience4j.circuitbreaker.instances.inventory.slidingWindowSize=5
+#resilience4j.circuitbreaker.instances.inventory.failureRateThreshold=50
+#resilience4j.circuitbreaker.instances.inventory.waitDurationInOpenState=5s
+#resilience4j.circuitbreaker.instances.inventory.permittedNumberOfCallsInHalfOpenState=2
+#resilience4j.circuitbreaker.instances.inventory.automaticTransitionFromOpenToHalfOpenEnabled=true
+#
+## Resilience4j Timeout Configuration
+#resilience4j.timeLimiter.instances.inventory.timeoutDuration=5s
+#
+## Resilience4j Retry Configuration
+#resilience4j.retry.instances.inventory.max-attempts=3
+#resilience4j.
